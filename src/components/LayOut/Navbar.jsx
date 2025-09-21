@@ -1,16 +1,48 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [activeSection, setActiveSection] = useState("home");
+
   const toggleMenu = () => setIsOpen(!isOpen);
+  useEffect(() => {
+    const sections = [
+      "home",
+      "about",
+      "process",
+      "portfolio",
+      "blog",
+      "services",
+      "contact",
+    ];
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200; // Adjust offset for when a section is considered active
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        const element = document.getElementById(section);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(section);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Trigger once to set initial active section
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className=" text-black bg-white p-4">
+    <nav className="sticky top-0 z-50 bg-white p-4 text-black shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -26,44 +58,58 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 ">
             <Link
-              href="/"
-              className="hover:text-white hover:bg-violet-700  px-4 py-2"
+              href="#home"
+              className={`px-4 py-2 rounded hover:text-white hover:bg-violet-600 ${
+                activeSection === "home" ? "bg-violet-600 text-white" : ""
+              }`}
             >
               Home
             </Link>
             <Link
-              href="/about"
-              className="hover:text-white hover:bg-violet-700   px-4 py-2"
+              href="#about"
+              className={`px-4 py-2 rounded hover:text-white hover:bg-violet-600 ${
+                activeSection === "about" ? "bg-violet-600 text-white" : ""
+              }`}
             >
               Abouts
             </Link>
             <Link
-              href="/services"
-              className="hover:text-white hover:bg-violet-700   px-4 py-2"
+              href="#process"
+              className={`px-4 py-2 rounded hover:text-white hover:bg-violet-600 ${
+                activeSection === "process" ? "bg-violet-600 text-white" : ""
+              }`}
             >
               Process
             </Link>
             <Link
-              href="/services"
-              className="hover:text-white hover:bg-violet-700 px-4 py-2"
+              href="#portfolio"
+              className={`px-4 py-2 rounded hover:text-white hover:bg-violet-600 ${
+                activeSection === "portfolio" ? "bg-violet-600 text-white" : ""
+              }`}
             >
               Portfolio
             </Link>
             <Link
-              href="/services"
-              className="hover:text-white hover:bg-violet-700   px-4 py-2"
+              href="#blog"
+              className={`px-4 py-2 rounded hover:text-white hover:bg-violet-600 ${
+                activeSection === "blog" ? "bg-violet-600 text-white" : ""
+              }`}
             >
               Blog
             </Link>
             <Link
-              href="/services"
-              className="hover:text-white hover:bg-violet-700 px-4 py-2"
+              href="#services"
+              className={`px-4 py-2 rounded hover:text-white hover:bg-violet-600 ${
+                activeSection === "services" ? "bg-violet-600 text-white" : ""
+              }`}
             >
               Services
             </Link>
             <Link
-              href="/contact"
-              className="bg-violet-600 hover:bg-violet-700 rounded-lg shadow-md px-4 py-2 text-white"
+              href="#contact"
+              className={`px-4 py-2 rounded bg-violet-600 hover:bg-violet-600 text-white ${
+                activeSection === "contact" ? "bg-violet-600" : ""
+              }`}
             >
               Contact
             </Link>

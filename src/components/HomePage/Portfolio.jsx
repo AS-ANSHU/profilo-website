@@ -21,67 +21,70 @@ const Portfolio = () => {
             height={300}
             className="mt-10 w-full h-60 object-cover"
           />
-          <div className="p-4">
+          <div className="p-4  space-y-2">
             <p className="text-sm text-gray-500 mt-4 tracking-wide">
               UI-UX DESIGN
             </p>
-            <h1 className="text-xl font-bold">Product Admin Dashboard</h1>
+            <h1 className="text-xl font-bold">Perfume Website</h1>
             <p className="text-sm text-gray-500 ">
               I focus on crafting smooth, responsive interfaces that balance
               aesthetic appeal with practical functionality.
             </p>
-
-            <button className="bg-gray-100 hover:bg-gray-50 text-black font-medium py-3 px-6 mt-4 rounded-lg">
+            <Button variant="destructive" className="mt-4">
               Case Study
-            </button>
+              <MoveRight size={16} />
+            </Button>
           </div>
         </div>
 
         <div className="max-w-sm  shadow-md rounded-lg">
           <Image
             id="myImage"
-            src="/image/perfume.jpg"
+            src="/image/Travel website Dashboard.jpg"
             alt="Portfolio"
             width={500}
             height={300}
             className="mt-10 w-full h-60 object-cover"
           />
-          <div className="p-4">
-            <p className="text-sm text-gray-500 mt-4 tracking-wide">
-              UI-UX DESIGN
+          <div className="p-4 space-y-2">
+            <p className="text-sm text-gray-500 tracking-wide mt-4">
+              WEB DEVELOPMENT
             </p>
-            <h1 className="text-xl font-bold">Product Admin Dashboard</h1>
+            <h1 className="text-xl font-bold">Perfume Website</h1>
             <p className="text-sm text-gray-500 ">
               I focus on crafting smooth, responsive interfaces that balance
               aesthetic appeal with practical functionality.
             </p>
 
-            <button className="bg-gray-100 hover:bg-gray-50 text-black font-medium py-3 px-6 mt-4 rounded-lg">
+            <Button variant="destructive" className="mt-4">
               Case Study
-            </button>
+              <MoveRight size={16} />
+            </Button>
           </div>
         </div>
 
         <div className="max-w-sm shadow-md rounded-lg">
           <Image
             id="myImage"
-            src="/image/perfume.jpg"
+            src="/image/Travel Admin Dashboard .jpg"
             alt="Portfolio"
             width={500}
             height={300}
             className="mt-10 w-full h-60 object-cover"
           />
-          <div className="p-4">
+          <div className="p-4  space-y-2">
             <p className="text-sm text-gray-500 mt-4 tracking-wide">
-              UI-UX DESIGN
+              WEB DEVELOPMENT
             </p>
-            <h1 className="text-xl font-bold">Product Admin Dashboard</h1>
+            <h1 className="text-xl font-bold">
+              Tour and Travels Admin Dashboard
+            </h1>
             <p className="text-sm text-gray-500 ">
               I focus on crafting smooth, responsive interfaces that balance
               aesthetic appeal with practical functionality.
             </p>
 
-            <Button variant="destructive">
+            <Button variant="destructive" className="mt-4">
               Case Study
               <MoveRight size={16} />
             </Button>
